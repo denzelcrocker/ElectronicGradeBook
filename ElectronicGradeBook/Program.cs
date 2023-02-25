@@ -16,7 +16,8 @@ namespace Electronic
             bool mini_reset = true;
             bool reset = true;
             bool big_reset = true;
-            Trace.Listeners.Add(new TextWriterTraceListener(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\out.txt"));
+            string outt = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "out.txt");
+            Trace.Listeners.Add(new TextWriterTraceListener(outt));
             Trace.AutoFlush = true;
             Trace.Indent();
             string choise;
@@ -176,8 +177,9 @@ namespace Electronic
                                     {
                                         Console.WriteLine(grades[i]);
                                         GradeData[i] = Console.ReadLine();
+                                        string stugra = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "studentsgrades.txt");
 
-                                        StreamReader studentslist = new StreamReader(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\studentsgrades.txt");
+                                        StreamReader studentslist = new StreamReader(stugra);
                                         string line = studentslist.ReadLine();
 
                                         if (i == 0)

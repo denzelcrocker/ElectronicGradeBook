@@ -11,7 +11,9 @@ namespace Electronic
     {
         public static void ReadStudents()
         {
-            StreamReader students = new StreamReader(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\students.txt");
+            string stu = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "studetns.txt");
+
+            StreamReader students = new StreamReader(stu);
 
             string line = students.ReadLine();
             string[] start = { "ФИО студента", "Год зачисления", "Форма обучения", "Специальность" };
@@ -38,7 +40,9 @@ namespace Electronic
 
         public static void PlusStudents(string[] DataPlus)
         {
-            StreamWriter students = new StreamWriter(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\students.txt", append: true);
+            string stu = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "studetns.txt");
+
+            StreamWriter students = new StreamWriter(stu, append: true);
 
             string line = $"{DataPlus[0]};{DataPlus[1]};{DataPlus[2]};{DataPlus[3]}";
 
@@ -49,7 +53,9 @@ namespace Electronic
         public static void SearchStudents()
         {
             Console.Clear();
-            StreamReader students = new StreamReader(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\students.txt");
+            string stu = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "studetns.txt");
+
+            StreamReader students = new StreamReader(stu);
 
             string line = students.ReadLine();
             int i = 0;
@@ -101,7 +107,9 @@ namespace Electronic
         }
         public static void ReadGrade()
         {
-            StreamReader grades = new StreamReader(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\grades.txt");
+            string gra = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "grades.txt");
+
+            StreamReader grades = new StreamReader(gra);
 
             string line = grades.ReadLine();
             string[] start = { "ФИО студента", "Предмет", "Оценка" };
@@ -126,7 +134,9 @@ namespace Electronic
         }
         public static void PlusGrade(string[] DataPlus)
         {
-            StreamWriter grades = new StreamWriter(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\grades.txt", append: true);
+            string gra = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "grades.txt");
+
+            StreamWriter grades = new StreamWriter(gra, append: true);
 
             string line = $"{DataPlus[0]};{DataPlus[1]};{DataPlus[2]}";
             grades.WriteLine(line);
@@ -135,7 +145,8 @@ namespace Electronic
         public static void SearchGrades()
         {
             Console.Clear();
-            StreamReader grades = new StreamReader(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\grades.txt");
+            string gra = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "grades.txt");
+            StreamReader grades = new StreamReader(gra);
 
             string line = grades.ReadLine();
             Console.WriteLine("Выберите столбец, по которому вы хотите совершить поиск по справочнику: \n \n 0 - ФИО студента \n 1 - Предмет \n 2 - Оценка \n ");
@@ -183,7 +194,9 @@ namespace Electronic
         }
         public static void PlusStudentsGrades(string[] DataPlus)
         {
-            StreamWriter studentsgrades = new StreamWriter(@"C:\Users\zelen\Desktop\ElectronicGradeBook\ElectronicGradeBook\\studentsgrades.txt", append: true);
+            string stugra = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "studentsgrades.txt");
+
+            StreamWriter studentsgrades = new StreamWriter(stugra, append: true);
             string line = $"{DataPlus[0]};{DataPlus[1]};{DataPlus[2]};{DataPlus[3]}";
 
             studentsgrades.WriteLine(line);
